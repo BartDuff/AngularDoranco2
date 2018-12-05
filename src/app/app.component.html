@@ -1,0 +1,45 @@
+la somme de 2 et 4 est {{ 2+4 }}
+<h1>{{ title }}</h1>
+<p>Bonjour {{ name }} {{ surname }}</p>
+<p>La longueur est de name {{ name.length }}</p>
+<input type="text" [value]='name'><br> // on va chercher la valeur de name pour l'affecter ) la propriété value<br>
+<input type="text" value='name'> // sans les crochets cela ne fonctionne plus <br>
+<p [innerHtml]='surname'></p>
+<button (click)="afficher()">Click!</button><br>
+Nombre à mettre au carré:
+<input type="text" [(ngModel)]='num1'><br>
+<button (click)="afficherNum()">Calculer carré</button><br>
+Le carré est:
+<p id="num"></p><br>
+<input type="text" [(ngModel)]="name"><br>
+<ul>
+  <!-- utilisation des pipes comme uppercase -->
+  <li *ngFor="let j of jours">{{ j | uppercase }}</li>
+</ul>
+<table class="table table-slipped">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+  </tr>
+  <!-- boucle pour parcourir le tableau -->
+  <tr *ngFor="let s of stagiaires">
+    <td>{{ s.id }}</td>
+    <td>{{ s.nom }}</td>
+    <td>{{ s.prenom }}</td>
+    <td>{{ s.age }}</td>
+  </tr>
+</table>
+<!-- utilisation d'une condition ngIf -->
+<p *ngIf="x > 18 ">
+  Vous avez accès!
+</p>
+<hr>
+<!-- utilisation de la variable de template avec #  -->
+<input type="text" #champ><button (click)="editer(champ.value)">Click</button>
+<p #p1 (click)="editer(p1.textContent)">Hello</p><br>
+<p>{{ birthday | date: "dd/MM/yyyy"}}</p>
+<div>
+  <app-form-component></app-form-component>
+</div>
